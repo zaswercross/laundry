@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es_MX">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/fav/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/fav/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/fav/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/fav/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/fav/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/fav/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/fav/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/fav/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/fav/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/fav/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/fav/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/fav/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/img/fav/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <title>Lavanderia</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/img/fav/favicon-32x32.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav w-100 mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Reportes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-backdrop="static" data-bs-keyboard="false"
+                                data-bs-toggle="modal" data-bs-target="#modalSearch">Buscar</a>
+                        </li>
+                        <li class="nav-item ms-auto">
+                            <a class="nav-link" href="#">Salir</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="modal fade" id="modalSearch" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Buscar cliente</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="">
+                        <div class="modal-body">
+                            <input class="form-control me-2" type="search" placeholder="Buscar # de Cliente"
+                                aria-label="Search">
+                            <input class="form-control me-2" type="search" placeholder="Buscar Folio"
+                                aria-label="Search">
+                            <input class="form-control me-2" type="search" placeholder="# de productos"
+                                aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <main class="container mt-4">
+        <section class="row">
+            <div class="dashboard d-flex justify-content-around flex-wrap col-12">
+                <div class="card text-white bg-success mb-3 shadow-lg" style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Success card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mb-3 shadow-lg" style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Danger card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                    </div>
+                </div>
+                <div class="card text-dark bg-warning mb-3 shadow-lg" style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Warning card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tableContent">
+                <div>
+                    <table class="table">
+                                          <tbody>
+                                          <tr>
+                                              <td>
+                                                  <button type="button" class="btn btn-danger mx-auto">12</button>
+                                                  Total messages
+                                              </td>
+                                              <td>
+                                                  <button type="button" class="btn btn-primary mx-auto">28</button>
+                                                  Posts
+                                              </td>
+                                              <td>
+                                                  <button type="button" class="btn btn-info text-white mx-auto">15</button>
+                                                 Comments
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <button type="button" class="btn btn-info text-white mx-auto">20</button>
+                                                  News
+                                              </td>
+                                              <td>
+                                                  <button type="button" class="btn btn-success mx-auto">40</button>
+                                                  Likes
+                                              </td>
+                                              <td>
+                                                  <button type="button" class="btn btn-danger mx-auto">30</button>
+                                                  Notifications
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <button type="button" class="btn btn-warning mx-auto">20</button>
+                                                  Albums
+                                              </td>
+                                              <td>
+                                                  <button type="button" class="btn btn-default mx-auto">40</button>
+                                                  Groups
+                                              </td>
+                                              <td>
+                                                  <button type="button" class="btn btn-warning mx-auto">30</button>
+                                                  Permissions
+                                              </td>
+                                          </tr>
+                                          </tbody>
+                                      </table>
+                              </div>
+            </div>
+        </section>
+    </main>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
