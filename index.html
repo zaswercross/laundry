@@ -24,6 +24,9 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Bootstrap CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/vanilla-dataTables.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
     <title>Lavanderia</title>
 </head>
 
@@ -45,123 +48,129 @@
                             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Reportes</a>
+                            <a class="nav-link" href="historico.html">Histórico</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#" data-bs-backdrop="static" data-bs-keyboard="false"
                                 data-bs-toggle="modal" data-bs-target="#modalSearch">Buscar</a>
-                        </li>
-                        <li class="nav-item ms-auto">
+                        </li> -->
+                        <!-- <li class="nav-item ms-auto">
                             <a class="nav-link" href="#">Salir</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
         </nav>
+        <!-- Buscar registro -->
         <div class="modal fade" id="modalSearch" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Buscar cliente</h5>
+                        <h5 class="modal-title">Buscar registro</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="">
+                    <form id="formSearch" class="formSearch">
                         <div class="modal-body">
-                            <input class="form-control me-2" type="search" placeholder="Buscar # de Cliente"
-                                aria-label="Search">
-                            <input class="form-control me-2" type="search" placeholder="Buscar Folio"
-                                aria-label="Search">
-                            <input class="form-control me-2" type="search" placeholder="# de productos"
-                                aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                            <div class="row g-3">
+                                <div class="mb-3 col-4">
+                                    <label for="folioSearch" class="form-label">Buscar Folio</label>
+                                    <input class="form-control me-2" id="folioSearch" name="folioSearch"  type="search" placeholder="Buscar Folio" aria-label="Search" pattern="[0-9]{2,10}">
+                                </div>
+                                <div class="mb-3 col-8">
+                                    <label for="clientSearch" class="form-label">Buscar Nombre</label>
+                                    <input class="form-control me-2" id="clientSearch" name="clientSearch"  type="search" placeholder="Nombre Cliente" aria-label="Search">
+                                </div>
+                                <!-- <div class="mb-3 col">
+                                    <label for="" class="form-label"># de productos</label>
+                                    <input class="form-control me-2" type="search" placeholder="# de productos" aria-label="Search">
+                                </div> -->
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Buscar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
+        <!-- Buscar registro -->
+        <!-- Agregar registro -->
+        <div class="modal fade" id="modalAdd" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Agregar Registro</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="formAdd" class="formAdd" autocomplete="off">
+                        <div class="modal-body">
+                            <div class="mb-3 col-12">
+                                <label for="nameClientAdd" class="form-label">Nombre Cliente</label>
+                                <input class="form-control me-2" type="text" id="nameClientAdd" name="nameClientAdd" placeholder="Nombre Cliente" aria-label="Name" required>
+                            </div>
+                            <div class="row g-3">
+                                <div class="mb-3 col">
+                                    <label for="folioAdd" class="form-label">Folio </label>
+                                    <input class="form-control me-2" type="text" id="folioAdd" name="folioAdd" placeholder="Folio" aria-label="Add" required pattern="[0-9]{2,10}" title="Sólo números">
+                                </div>
+                                <div class="mb-3 col">
+                                    <label for="numProducts" class="form-label"># de productos</label>
+                                    <input class="form-control me-2" type="text" minlength="1" maxlength="50" id="numProducts" name="numProducts"  placeholder="# de productos" aria-label="Products"  pattern="[0-9]{0,10}" title="Sólo números">
+                                </div>
+                                <div class="mb-3 col">
+                                    <label for="precioAdd" class="form-label">Precio</label>
+                                    <input class="form-control me-2" type="text" minlength="1" maxlength="50" id="precioAdd" name="precioAdd" placeholder="Precio" aria-label="Pricing"  pattern="[0-9]{0,10}" title="Sólo números">
+                                </div>
+                            </div>
+                            <div class="mb-3 co-12">
+                                <label for="descriptionAdd" class="form-label">Descripción</label>
+                                <textarea class="form-control me-2" id="descriptionAdd" name="descriptionAdd" placeholder="Descripción" aria-label="Description" required></textarea>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="modal-footer">
+                            <!-- <button type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal">Cerrar</button> -->
+                            <button type="submit" class="btn btn-primary">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Agregar registro -->
+        <div class="contButtons">
+            <!-- <button type="button" class="btn btn-primary btn-lg searchClient" href="#" data-bs-backdrop="static" data-bs-keyboard="false"
+            data-bs-toggle="modal" data-bs-target="#modalSearch"><i class="fa fa-search mb-2" aria-hidden="true"></i></button> -->
+            <button type="button" class="btn btn-success btn-lg addClient" href="#" data-bs-backdrop="static" data-bs-keyboard="false"
+            data-bs-toggle="modal" data-bs-target="#modalAdd"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </div>
     </header>
     <main class="container mt-4">
         <section class="row">
-            <div class="dashboard d-flex justify-content-around flex-wrap col-12">
-                <div class="card text-white bg-success mb-3 shadow-lg" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Success card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
+            <div class="dashboard d-flex justify-content-evenly flex-wrap col-12">
+                <div class="col-3 card text-white fw-bolder bg-success mb-3 shadow-lg" style="max-width: 18rem;">
+                    <div class="card-header text-uppercase">Entregados</div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bolder display-5 entregadosWid">#</h5>
+                        <p class="card-text display-4 fw-light"><i class="fa fa-check" aria-hidden="true"></i></p>
                     </div>
                 </div>
-                <div class="card text-white bg-danger mb-3 shadow-lg" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Danger card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
+                <div class="col-3 card text-dark fw-bolder bg-warning mb-3 shadow-lg" style="max-width: 18rem;">
+                    <div class="card-header text-uppercase">Pendientes</div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bolder display-5 pendientesWid">#</h5>
+                        <p class="card-text display-4 fw-light"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
                     </div>
                 </div>
-                <div class="card text-dark bg-warning mb-3 shadow-lg" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Warning card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
+                <div class="col-3 card text-white fw-bolder bg-danger mb-3 shadow-lg" style="max-width: 18rem;">
+                    <div class="card-header text-uppercase"> No entregados</div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bolder display-5 faltantesWid">#</h5>
+                        <p class="card-text display-4 fw-light"><i class="fa fa-times" aria-hidden="true"></i></p>
                     </div>
                 </div>
             </div>
             <div class="tableContent">
-                <div>
-                    <table class="table">
-                                          <tbody>
-                                          <tr>
-                                              <td>
-                                                  <button type="button" class="btn btn-danger mx-auto">12</button>
-                                                  Total messages
-                                              </td>
-                                              <td>
-                                                  <button type="button" class="btn btn-primary mx-auto">28</button>
-                                                  Posts
-                                              </td>
-                                              <td>
-                                                  <button type="button" class="btn btn-info text-white mx-auto">15</button>
-                                                 Comments
-                                              </td>
-                                          </tr>
-                                          <tr>
-                                              <td>
-                                                  <button type="button" class="btn btn-info text-white mx-auto">20</button>
-                                                  News
-                                              </td>
-                                              <td>
-                                                  <button type="button" class="btn btn-success mx-auto">40</button>
-                                                  Likes
-                                              </td>
-                                              <td>
-                                                  <button type="button" class="btn btn-danger mx-auto">30</button>
-                                                  Notifications
-                                              </td>
-                                          </tr>
-                                          <tr>
-                                              <td>
-                                                  <button type="button" class="btn btn-warning mx-auto">20</button>
-                                                  Albums
-                                              </td>
-                                              <td>
-                                                  <button type="button" class="btn btn-default mx-auto">40</button>
-                                                  Groups
-                                              </td>
-                                              <td>
-                                                  <button type="button" class="btn btn-warning mx-auto">30</button>
-                                                  Permissions
-                                              </td>
-                                          </tr>
-                                          </tbody>
-                                      </table>
-                              </div>
             </div>
         </section>
     </main>
@@ -169,6 +178,9 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vanilla-dataTables.min.js"></script>
+    <script src="assets/js/sweetalert.min.js"></script>
+    <script src="assets/js/index.js"></script>
 
 </body>
 

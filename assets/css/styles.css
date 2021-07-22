@@ -1,0 +1,9 @@
+.searchClient, .addClient {
+	position: fixed;
+	bottom: 2em;
+	left: 2em;
+}
+.addClient {
+	right: 2em;
+	left: initial;
+}
